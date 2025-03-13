@@ -1,9 +1,3 @@
-console.log(9800);
+// architectural pattern: Model View Controller, Dependency Injection, Model View Presenter
 
-import moment from 'moment';
-
-const currntTime = moment().format("YYYY MM DD");
-console.log(currntTime);
-
-const person: string = "Dan";
-const count: number = 18;
+// design pattern: Middleware, Decorator
