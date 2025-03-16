@@ -1,6 +1,7 @@
 import express, { urlencoded } from "express";
 import path from "path";
 import router from "./router";
+import routerAdmin from "./routerAdmin";
 
 // 1-Entrance
 const app = express();
@@ -15,6 +16,7 @@ app.set("view", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 // 4-Routers
-app.use("/", router); //Middleware design pattern
+app.use("/admin", routerAdmin); // BSSR: ejs
+app.use("/", router);           // SPA: React, rest API
 
 export default app;
