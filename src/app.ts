@@ -1,11 +1,12 @@
 import express, { urlencoded } from "express";
 import path from "path";
+import router from "./router";
 
 // 1-Entrance
 const app = express();
 app.use(express.static(path.join(__dirname, "public")));
-app.use(express.urlencoded({extended: true}));
-app.use(express.json());
+app.use(express.urlencoded({extended: true})); 
+app.use(express.json()); //Middleware for rest api
 
 // 2-Sessions
 
@@ -14,5 +15,6 @@ app.set("view", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 // 4-Routers
+app.use("/", router); //Middleware design pattern
 
 export default app;
