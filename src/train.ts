@@ -28,7 +28,14 @@
  - Naming standarts:
    function, method, variable => camelCase       goHome
    class => PaskalCase                           MemberService
-   folder => KEBAB-CASE                          
+   folder => KEBAB-CASE                          router-admin
    css => snake_case                             button_name
  - ERROR handlings:   
  */
+
+ /*
+    Traditional API
+    Rest API
+    GraphQL API
+    ...
+  */
