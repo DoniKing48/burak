@@ -24,10 +24,11 @@
 // console.log(majorityElement([7,2,7,6,5,1,2,9,8,6,3,6,5]));
 
 /* PROJECT STANDARTS:
- - Logging standarts
- - Naming standarts
+ - Logging standarts:
+ - Naming standarts:
    function, method, variable => camelCase       goHome
    class => PaskalCase                           MemberService
    folder => KEBAB-CASE                          
    css => snake_case                             button_name
+ - ERROR handlings:   
  */
