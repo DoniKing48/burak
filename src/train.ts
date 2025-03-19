@@ -39,3 +39,14 @@
     GraphQL API
     ...
   */
+
+
+/* J-TASK 
+ Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
+ MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
+*/
+
+function findLongestWord(str: string) {
+  return str.split(' ').reduce((a: string, b: string) => (b.length > a.length) ? b : a);
+};
+console.log(findLongestWord("I come from Uzbekistan"));
