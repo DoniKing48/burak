@@ -46,7 +46,15 @@
  MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
 */
 
-function findLongestWord(str: string) {
-  return str.split(' ').reduce((a: string, b: string) => (b.length > a.length) ? b : a);
-};
-console.log(findLongestWord("I come from Uzbekistan"));
+// function findLongestWord(str: string) {
+//   return str.split(' ').reduce((a: string, b: string) => (b.length > a.length) ? b : a);
+// };
+// console.log(findLongestWord("I come from Uzbekistan"));
+
+// H2-TASK
+
+function getDigits(str: string): string {
+  return str.replace(/\D/g, "");
+}
+
+console.log(getDigits("M2IT4"))
