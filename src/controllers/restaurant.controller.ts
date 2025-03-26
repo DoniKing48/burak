@@ -55,6 +55,7 @@ restaurantController.processSignup = async (req: Request, res: Response) => {
         //Objectimiz orqali methodni (processSignup) chaqirib "newMember"ni argument sifatida PASS qilayapmiz
         //Natijani kutib const ni result ga tenglayapmiz
         const result = await memberService.processSignup(newMember);
+        //TODO sessions 
         console.log('STEP-6');
 
         res.send(result); //natijani chiqarib yuboramiz
@@ -71,6 +72,7 @@ restaurantController.processLogin = async (req: Request, res: Response) => {
         console.log('processLogin');
         const input: LoginInput = req.body;
         const result = await memberService.processLogin(input); 
+        //TODO sessions 
 
         res.send(result);
     } catch (err) {

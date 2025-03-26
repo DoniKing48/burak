@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import {T} from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { LoginInput, Member, MemberInput } from "../libs/types/member";
+import Errors from "../libs/Errors";
 
 const memberService = new MemberService(); //MemberService modulidan yangi object(memberService) yasaymiz
 const memberController: T = {};
@@ -10,21 +11,17 @@ const memberController: T = {};
 memberController.signup = async (req: Request, res: Response) => {
     try {
         console.log('signup');
-        console.log('STEP-1')
 
-        console.log('STEP-2')
         const input: MemberInput = req.body,
         //CALL
-        //Objectimiz orqali methodni (processSignup) chaqirib "newMember"ni argument sifatida PASS qilayapmiz
-        //Natijani kutib const ni result ga tenglayapmiz
         result: Member = await memberService.signup(input);
-        console.log('STEP-6')
-
-        res.json({member: result}); //natijani chiqarib yuboramiz
+        //TODO tokens
+        
+        res.json({member: result});
     } catch (err) {
-        console.log('STEP-7')
         console.log("ERROR, signup:", err);
-        // res.json({});    
+        if(err instanceof Errors) res.status(err.code).json(err);
+        else res.status(Errors.standart.code).json(Errors.standart);
     }
 };
 
@@ -33,6 +30,7 @@ memberController.login = async (req: Request, res: Response) => {
         console.log('login');
         const input: LoginInput = req.body,
         result = await memberService.login(input); 
+        //TODO tokens
 
         res.json({member: result});
         } catch (err) {
