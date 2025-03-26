@@ -57,8 +57,13 @@
 
 // H2-TASK
 
-function getDigits(str: string): string {
-  return str.replace(/\W/g, "");
-}
+// function getDigits(str: string): string {
+//   return str.replace(/\W/g, "");
+// }
 
-console.log(getDigits("M2IT4"))
+// console.log(getDigits("M2IT4"))
+
+// K-TASK
+
+const countVowels = (str: string) => (str.match(/[aeiou]/gi) || []).length;
+console.log(countVowels("qwertyuiopasdfghjklzxcvbnmO"));
