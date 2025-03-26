@@ -22,8 +22,8 @@ app.use(morgan(MORGAN_FORMAT))                           //performance control, 
 // 2-Sessions
 
 // 3-Views
-app.set("view", path.join(__dirname, "views")); //BSSR uchun EJS frameworkini intergartsiya qilish
-app.set("view engine", "ejs");                  //view engine EJS, view is being used for view generation
+app.set("views", path.join(__dirname, "views")); //BSSR uchun EJS frameworkini intergartsiya qilish
+app.set("view engine", "ejs");                   //view engine EJS, view is being used for view generation
 
 // 4-Routers
 app.use("/admin", routerAdmin); // BSSR: EJS
