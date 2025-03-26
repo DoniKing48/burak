@@ -1,10 +1,11 @@
-import dotenv from "dotenv";
+import dotenv from "dotenv"; // enviromental varieblelarni integratsiya qiluvchi
 dotenv.config();
-import mongoose from "mongoose";
+import mongoose from "mongoose"; // ext pack, maqsadli object
 import app from "./app";
 
-mongoose
-.connect(process.env.MONGO_URL as string, {})
+//TCP - Doimiy bog'lanish
+mongoose //asynch
+.connect(process.env.MONGO_URL as string, {}) //connect methodi orqali database bilan doimiy aloqada bo'lishimiz
 .then((data) => {
     console.log("SUCCES connecting MongoDB");
     const PORT = process.env.PORT ?? 3003;

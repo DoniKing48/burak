@@ -1,3 +1,25 @@
+/* PROJECT STANDARTS:
+ - Logging standarts:
+ - Naming standarts:
+   function, method, variable => camelCase       goHome
+   class => PaskalCase                           MemberService
+   folder => KEBAB-CASE                          router-admin
+   css => snake_case                             button_name
+ - ERROR handlings:   
+ */
+
+ /*
+    Traditional API
+    Rest API
+    GraphQL API
+    ...
+  */
+
+/* FRONTEND DEVELOPMENT
+  TRADITIONAL FD = BSSR
+  MODERN FD = SPA
+*/ 
+
 // G-TASK
 
 // function getHighestIndex(arr: number[]): number {
@@ -23,24 +45,6 @@
 
 // console.log(majorityElement([7,2,7,6,5,1,2,9,8,6,3,6,5]));
 
-/* PROJECT STANDARTS:
- - Logging standarts:
- - Naming standarts:
-   function, method, variable => camelCase       goHome
-   class => PaskalCase                           MemberService
-   folder => KEBAB-CASE                          router-admin
-   css => snake_case                             button_name
- - ERROR handlings:   
- */
-
- /*
-    Traditional API
-    Rest API
-    GraphQL API
-    ...
-  */
-
-
 /* J-TASK 
  Shunday function yozing, u string qabul qilsin va string ichidagi eng uzun sozni qaytarsin.
  MASALAN: findLongestWord("I come from Uzbekistan") return "Uzbekistan"
@@ -54,7 +58,7 @@
 // H2-TASK
 
 function getDigits(str: string): string {
-  return str.replace(/\D/g, "");
+  return str.replace(/\W/g, "");
 }
 
 console.log(getDigits("M2IT4"))

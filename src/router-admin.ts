@@ -4,11 +4,13 @@ import restaurantController from "./controllers/restaurant.controller";
 
 
 // Restaurant
-routerAdmin.get("/", restaurantController.goHome);
+routerAdmin.get/*method*/("/"/*url*/, restaurantController/*object*/.goHome/*method*/);
+
+//API methodi (get) bilan endpoint (url) bajarilsa object (controller) => methodga (goHome) jo'natiladi
 
 routerAdmin
-.get("/login", restaurantController.getLogin)
-.post("/login", restaurantController.processLogin);
+.get("/login", /*CALL*/ restaurantController.getLogin /*CALL*/)   /*get-page ga borish*/
+.post("/login", restaurantController.processLogin);               /*post-page da biror bir amal bajarib yuborish*/
 
 routerAdmin
 .get("/signup", restaurantController.getSignup)

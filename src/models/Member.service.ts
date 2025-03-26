@@ -10,26 +10,27 @@ class MemberService {
         this.memberModel = MemberModel;
     }
 
-    public async processSignup(input: MemberInput): Promise<Member> {
-        const exist = await this.memberModel
-        .findOne({memberType: MemberType.RESTAURANT})
-        .exec();
+    /*SPA*/ 
 
-        if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
 
+    //DEFINITION
+    public async signup/*method*/(input: MemberInput /*parametr*/): Promise<Member> {
         const salt = await bcrypt.genSalt();
         input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
 
         try {
-        const result = await this.memberModel.create(input); //static method
-        result.memberPassword = "";
-        return result;
+        const result = await this.memberModel.create(input);
+        result.memberPassword = "";    
+        return result.toJSON();               
         } catch (err) {
-            throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED)
+            console.error('ERROR, model:signup', err);
+            throw new Errors(HttpCode.BAD_REQUEST, Message.USED_NICK_PHONE);
         }
     }
+    //DEFINITION
 
-    public async processLogin(input: LoginInput): Promise<Member> {
+    public async login(input: LoginInput): Promise<Member> {
+        // TODO: consider member status later
         const member = await this.memberModel.findOne(
         {memberNick: input.memberNick},
         {memeberNick: 1, memberPassword: 1}
@@ -49,5 +50,10 @@ class MemberService {
         return await this.memberModel.findById(member._id).exec();
     }
 }
+
+/*BSSR*/
+    
+    
+
 
 export default MemberService;
