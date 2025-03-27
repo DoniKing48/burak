@@ -20,6 +20,11 @@
   MODERN FD = SPA
 */ 
 
+/*COOCKIES
+  request join
+  kamikadze
+*/ 
+
 // G-TASK
 
 // function getHighestIndex(arr: number[]): number {
