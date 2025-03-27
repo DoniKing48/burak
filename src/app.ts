@@ -28,6 +28,17 @@ app.use(morgan(MORGAN_FORMAT))                           //performance control, 
 //Structure: header & body
 
 // 2-Sessions
+app.use(
+    session({
+        secret: String(process.env.SESSION_SECRET),
+        cookie: {
+            maxAge: 1000 * 3600 * 3, //3HRS
+        },
+        store: store,
+        resave: true,
+        saveUninitialized: true,
+    })
+);
 
 // 3-Views
 app.set("views", path.join(__dirname, "views")); //BSSR uchun EJS frameworkini intergartsiya qilish
