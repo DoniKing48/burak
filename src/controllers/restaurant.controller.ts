@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import {T} from "../libs/types/common";
 import MemberService from "../models/Member.service";
-import { LoginInput, MemberInput } from "../libs/types/member";
+import { AdminRequest, LoginInput, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
 
 
@@ -42,39 +42,38 @@ restaurantController.getLogin = (req: Request, res: Response) => {
 };
 
 
-restaurantController.processSignup = async (req: Request, res: Response) => {
+restaurantController.processSignup = async (req: AdminRequest, res: Response) => {
     try {
         console.log('processSignup');
-        console.log('STEP-1');
 
         const newMember: MemberInput = req.body;
         newMember.memberType = MemberType.RESTAURANT;
-        console.log('STEP-2');
 
         //CALL
         //Objectimiz orqali methodni (processSignup) chaqirib "newMember"ni argument sifatida PASS qilayapmiz
         //Natijani kutib const ni result ga tenglayapmiz
         const result = await memberService.processSignup(newMember);
-        //TODO sessions 
-        console.log('STEP-6');
+        req.session.member = result;
+        req.session.save(function() {
+            res.send(result);
+        });
 
-        res.send(result); //natijani chiqarib yuboramiz
     } catch (err) {
-        console.log('STEP-7')
-
         console.log("ERROR, processSignup:", err);
         res.send(err);
     }
 };
 
-restaurantController.processLogin = async (req: Request, res: Response) => {
+restaurantController.processLogin = async (req: AdminRequest, res: Response) => {
     try {
         console.log('processLogin');
         const input: LoginInput = req.body;
         const result = await memberService.processLogin(input); 
-        //TODO sessions 
+        req.session.member = result;
+        req.session.save(function() {
+            res.send(result);
+        });
 
-        res.send(result);
     } catch (err) {
         console.log("ERROR, processLogin:", err);
         res.send(err);
