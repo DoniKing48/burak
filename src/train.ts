@@ -70,5 +70,15 @@
 
 // K-TASK
 
-const countVowels = (str: string) => (str.match(/[aeiou]/gi) || []).length;
-console.log(countVowels("qwertyuiopasdfghjklzxcvbnmO"));
+// const countVowels = (str: string) => (str.match(/[aeiou]/gi) || []).length;
+// console.log(countVowels("qwertyuiopasdfghjklzxcvbnmO"));
+
+// L-TASK
+function reverseSentence(sentence: string) {
+  return sentence
+    .split(" ")
+    .map((word: string) => word.split("").reverse().join("")) 
+    .join(" "); 
+}
+
+console.log(reverseSentence("we like coding!")); 
