@@ -14,7 +14,7 @@ class MemberService {
 
 
     //DEFINITION
-    public async signup/*method*/(input: MemberInput /*parametr*/): Promise<Member> {
+    public async signup/*method*/(input/*parametr*/: MemberInput ): Promise<Member> {
         const salt = await bcrypt.genSalt();
         input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
 
