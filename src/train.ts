@@ -81,11 +81,18 @@ Database v
 // console.log(countVowels("qwertyuiopasdfghjklzxcvbnmO"));
 
 // L-TASK
-function reverseSentence(sentence: string) {
-  return sentence
-    .split(" ")
-    .map((word: string) => word.split("").reverse().join("")) 
-    .join(" "); 
+// function reverseSentence(sentence: string) {
+//   return sentence
+//     .split(" ")
+//     .map((word: string) => word.split("").reverse().join("")) 
+//     .join(" "); 
+// }
+
+// console.log(reverseSentence("we like coding!")); 
+
+// M-TASK 
+function getSquareNumbers(arr: number[]) {
+  return arr.map((num: number) => ({ number: num, square: num * num }));
 }
 
-console.log(reverseSentence("we like coding!")); 
+console.log(getSquareNumbers([100, 222, 369]));
