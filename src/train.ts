@@ -25,6 +25,13 @@
   kamikadze
 */ 
 
+/*Validations:
+Frontend v
+Pipe v
+Backend v
+Database v
+*/
+
 // G-TASK
 
 // function getHighestIndex(arr: number[]): number {
