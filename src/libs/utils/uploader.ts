@@ -10,8 +10,8 @@ function getTargetImageStorage(address: string) {
         },
         filename: function (req, file, cb) {
             const extension = path.extname(file.originalname);
-            const random_name = v4() + extension;
-            cb(null, random_name);
+            const randomName = v4() + extension;
+            cb(null, randomName);
         }
     });
 }

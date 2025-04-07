@@ -44,7 +44,7 @@ class MemberService {
         );
 
         if(!isMatch) {
-            throw new Errors(HttpCode.UNATHORIZED, Message.WRONG_PASSWORD);
+            throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
         }
 
         return await this.memberModel.findById(member._id).exec();
@@ -84,7 +84,7 @@ public async processLogin(input: LoginInput): Promise<Member> {
     );
 
     if(!isMatch) {
-        throw new Errors(HttpCode.UNATHORIZED, Message.WRONG_PASSWORD);
+        throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
     }
 
     return await this.memberModel.findById(member._id).exec();
