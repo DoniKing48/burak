@@ -91,8 +91,18 @@ Database v
 // console.log(reverseSentence("we like coding!")); 
 
 // M-TASK 
-function getSquareNumbers(arr: number[]) {
-  return arr.map((num: number) => ({ number: num, square: num * num }));
+// function getSquareNumbers(arr: number[]) {
+//   return arr.map((num: number) => ({ number: num, square: num * num }));
+// }
+
+// console.log(getSquareNumbers([100, 222, 369]));
+
+// O-TASK
+
+function calculateSumOfNumbers(arr: any[]) {
+  const numbers = arr.filter(item => typeof item === 'number' && !isNaN(item));
+  return numbers.reduce((sum, num) => sum + num, 0);
 }
 
-console.log(getSquareNumbers([100, 222, 369]));
+const result = calculateSumOfNumbers([101, "1218", {son: 120}, true, 7, 6*8+77, "ws"]);
+console.log(result);
