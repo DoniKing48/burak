@@ -99,10 +99,19 @@ Database v
 
 // O-TASK
 
-function calculateSumOfNumbers(arr: any[]) {
-  const numbers = arr.filter(item => typeof item === 'number' && !isNaN(item));
-  return numbers.reduce((sum, num) => sum + num, 0);
+// function calculateSumOfNumbers(arr: any[]) {
+//   const numbers = arr.filter(item => typeof item === 'number' && !isNaN(item));
+//   return numbers.reduce((sum, num) => sum + num, 0);
+// }
+
+// const result = calculateSumOfNumbers([101, "1218", {son: 120}, true, 7, 6*8+77, "ws"]);
+// console.log(result);
+
+// P-TASK
+
+function objectToArray(obj: any) {
+  return Object.entries(obj);
 }
 
-const result = calculateSumOfNumbers([101, "1218", {son: 120}, true, 7, 6*8+77, "ws"]);
-console.log(result);
+// Misol:
+console.log(objectToArray({ c: 100, d: 50, s: 6-9 }));
