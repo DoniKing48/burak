@@ -109,9 +109,16 @@ Database v
 
 // P-TASK
 
-function objectToArray(obj: any) {
-  return Object.entries(obj);
+// function objectToArray(obj: any) {
+//   return Object.entries(obj);
+// }
+
+// console.log(objectToArray({ c: 100, d: 50, s: 6-9 }));
+
+// Q-TASK
+
+function hasProperty(obj: Record<string, any>, key: string): boolean {
+  return obj.hasOwnProperty(key);
 }
 
-// Misol:
-console.log(objectToArray({ c: 100, d: 50, s: 6-9 }));
+console.log(hasProperty({ name: "BMW", model: "M3" }, "name"));
