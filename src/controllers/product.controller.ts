@@ -4,7 +4,6 @@ import { T } from "../libs/types/common";
 import ProductService from "../models/product.service";
 import { ProductInput } from "../libs/types/product";
 import { AdminRequest } from "../libs/types/member";
-
 const productService = new ProductService();
 
 const productController: T = {};
@@ -15,6 +14,7 @@ productController.getAllProducts = async (req: Request, res: Response) => {
     try {
         console.log('getAllProducts');
         const data = await productService.getAllProducts();
+        console.log("products:", {products: data})
 
         res.render("products", {products: data});
     } catch (err) {
