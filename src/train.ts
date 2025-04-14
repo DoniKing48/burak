@@ -117,8 +117,19 @@ Database v
 
 // Q-TASK
 
-function hasProperty(obj: Record<string, any>, key: string): boolean {
-  return obj.hasOwnProperty(key);
+// function hasProperty(obj: Record<string, any>, key: string): boolean {
+//   return obj.hasOwnProperty(key);
+// }
+
+// console.log(hasProperty({ name: "BMW", model: "M3" }, "name"));
+
+// R-TASK
+
+function calculate(str: string): number {
+  return str
+    .split('+')
+    .map(Number)
+    .reduce((a, b) => a + b);
 }
 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "name"));
+console.log(calculate("1+3")); 
