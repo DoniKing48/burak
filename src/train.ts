@@ -136,18 +136,26 @@ Database v
 
 // S-TASK
 
-function missingNumber(arr: number[]) {
-  let min = Math.min(...arr);
-  let max = Math.max(...arr);
-  let result = [];
+// function missingNumber(arr: number[]) {
+//   let min = Math.min(...arr);
+//   let max = Math.max(...arr);
+//   let result = [];
 
-  for (let i = min; i <= max; i++) {
-    if (!arr.includes(i)) {
-      result.push(i);
-    }
-  }
+//   for (let i = min; i <= max; i++) {
+//     if (!arr.includes(i)) {
+//       result.push(i);
+//     }
+//   }
 
-  return result;
+//   return result;
+// }
+
+// console.log (missingNumber([2,0,4,0,6]))
+
+// T-TASK
+
+function mergeSortedArrays(arr1: any, arr2: any) {
+  return [...arr1, ...arr2].sort((a, b) => a - b);
 }
 
-console.log (missingNumber([2,0,4,0,6]))
+console.log(mergeSortedArrays([0, 3, 100, 5, 31], [4, 1, 6, 30]));
