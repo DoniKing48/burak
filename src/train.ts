@@ -125,11 +125,29 @@ Database v
 
 // R-TASK
 
-function calculate(str: string): number {
-  return str
-    .split('+')
-    .map(Number)
-    .reduce((a, b) => a + b);
+// function calculate(str: string): number {
+//   return str
+//     .split('+')
+//     .map(Number)
+//     .reduce((a, b) => a + b);
+// }
+
+// console.log(calculate("1+3")); 
+
+// S-TASK
+
+function missingNumber(arr: number[]) {
+  let min = Math.min(...arr);
+  let max = Math.max(...arr);
+  let result = [];
+
+  for (let i = min; i <= max; i++) {
+    if (!arr.includes(i)) {
+      result.push(i);
+    }
+  }
+
+  return result;
 }
 
-console.log(calculate("1+3")); 
+console.log (missingNumber([2,0,4,0,6]))

@@ -63,7 +63,7 @@ function validateForm() {
   } else return true;
 }
 
-function previewFileHandler(input, order) {
+function previewFileHandler(input, order) { 
   const imgClassName = input.className;
   console.log("input:", input);
 
