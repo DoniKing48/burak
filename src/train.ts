@@ -154,8 +154,22 @@ Database v
 
 // T-TASK
 
-function mergeSortedArrays(arr1: any, arr2: any) {
-  return [...arr1, ...arr2].sort((a, b) => a - b);
+// function mergeSortedArrays(arr1: any, arr2: any) {
+//   return [...arr1, ...arr2].sort((a, b) => a - b);
+// }
+
+// console.log(mergeSortedArrays([0, 3, 100, 5, 31], [4, 1, 6, 30]));
+
+// U-TASK
+
+function sumOdds(number: number) {
+  let count = 0;
+  for (let i = 0; i < number; i++) {
+      if (i % 2 !== 0) {
+          count++;
+      }
+  }
+  return count;
 }
 
-console.log(mergeSortedArrays([0, 3, 100, 5, 31], [4, 1, 6, 30]));
+console.log(sumOdds(9))
