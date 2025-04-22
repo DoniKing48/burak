@@ -162,14 +162,32 @@ Database v
 
 // U-TASK
 
-function sumOdds(number: number) {
-  let count = 0;
-  for (let i = 0; i < number; i++) {
-      if (i % 2 !== 0) {
-          count++;
-      }
+// function sumOdds(number: number) {
+//   let count = 0;
+//   for (let i = 0; i < number; i++) {
+//       if (i % 2 !== 0) {
+//           count++;
+//       }
+//   }
+//   return count;
+// }
+
+// console.log(sumOdds(9))
+
+// V-TASK
+
+function countChars(str:string): { [key:string]: number } {
+  const result: {[key:string]: number} = {};
+
+  for (let char of str) {
+    if (result[char]) {
+      result[char]++;
+    } else {
+      result[char] = 1;
+    }
   }
-  return count;
+
+  return result;
 }
 
-console.log(sumOdds(9))
+console.log (countChars("Madaminjon shakarsan shakar!"));
