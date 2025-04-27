@@ -176,18 +176,33 @@ Database v
 
 // V-TASK
 
-function countChars(str:string): { [key:string]: number } {
-  const result: {[key:string]: number} = {};
+// function countChars(str:string): { [key:string]: number } {
+//   const result: {[key:string]: number} = {};
 
-  for (let char of str) {
-    if (result[char]) {
-      result[char]++;
-    } else {
-      result[char] = 1;
-    }
+//   for (let char of str) {
+//     if (result[char]) {
+//       result[char]++;
+//     } else {
+//       result[char] = 1;
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log (countChars("Madaminjon shakarsan shakar!"));
+
+// W-TASK
+
+function chunkArray(arr: string | any[], size: number) {
+  const result = [];
+  
+  for (let i = 0; i < arr.length; i += size) {
+    result.push(arr.slice(i, i + size));
   }
-
+  
   return result;
 }
 
-console.log (countChars("Madaminjon shakarsan shakar!"));
+const chunked = chunkArray([1,2,3,4,5,6,7,8,9,10], 3);
+console.log(chunked);
