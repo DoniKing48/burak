@@ -194,15 +194,34 @@ Database v
 
 // W-TASK
 
-function chunkArray(arr: string | any[], size: number) {
-  const result = [];
+// function chunkArray(arr: string | any[], size: number) {
+//   const result = [];
   
-  for (let i = 0; i < arr.length; i += size) {
-    result.push(arr.slice(i, i + size));
+//   for (let i = 0; i < arr.length; i += size) {
+//     result.push(arr.slice(i, i + size));
+//   }
+  
+//   return result;
+// }
+
+// const chunked = chunkArray([1,2,3,4,5,6,7,8,9,10], 3);
+// console.log(chunked);
+
+// X-TASK
+
+function countOccurrences(obj: { [x: string]: any; model?: string; steer?: { model: string; size: number; }; }, str: string) {
+  let count = 0;
+
+  for (let key in obj) {
+    if (typeof obj[key] === 'object' && obj[key] !== null) {
+      count += countOccurrences(obj[key], str);
+    } else if (key === str) {
+      count++;
+    }
   }
-  
-  return result;
+
+  return count;
 }
 
-const chunked = chunkArray([1,2,3,4,5,6,7,8,9,10], 3);
-console.log(chunked);
+const result = countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model');
+console.log(result);
