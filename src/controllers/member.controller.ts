@@ -3,11 +3,12 @@ import {T} from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { LoginInput, Member, MemberInput } from "../libs/types/member";
 import Errors from "../libs/Errors";
+import AuthService from "../models/Auth.service";
 
 const memberService = new MemberService(); //MemberService modulidan yangi object(memberService) yasaymiz
+const authService = new AuthService();
+
 const memberController: T = {};
-
-
 memberController.signup = async (req: Request, res: Response) => {
     try {
         console.log('signup');
@@ -15,7 +16,8 @@ memberController.signup = async (req: Request, res: Response) => {
         const input: MemberInput = req.body,
         //CALL
         result: Member = await memberService.signup(input);
-        //TODO tokens
+        const token = await authService.createToken(result);
+        console.log("token:", token);
         
         res.json({member: result});
     } catch (err) {
@@ -29,8 +31,9 @@ memberController.login = async (req: Request, res: Response) => {
     try {
         console.log('login');
         const input: LoginInput = req.body,
-        result = await memberService.login(input); 
-        //TODO tokens
+        result = await memberService.login(input),
+        token = await authService.createToken(result);
+        console.log("token=>", token);
 
         res.json({member: result});
         } catch (err) {
