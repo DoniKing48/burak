@@ -209,19 +209,28 @@ Database v
 
 // X-TASK
 
-function countOccurrences(obj: { [x: string]: any; model?: string; steer?: { model: string; size: number; }; }, str: string) {
-  let count = 0;
+// function countOccurrences(obj: { [x: string]: any; model?: string; steer?: { model: string; size: number; }; }, str: string) {
+//   let count = 0;
 
-  for (let key in obj) {
-    if (typeof obj[key] === 'object' && obj[key] !== null) {
-      count += countOccurrences(obj[key], str);
-    } else if (key === str) {
-      count++;
-    }
-  }
+//   for (let key in obj) {
+//     if (typeof obj[key] === 'object' && obj[key] !== null) {
+//       count += countOccurrences(obj[key], str);
+//     } else if (key === str) {
+//       count++;
+//     }
+//   }
 
-  return count;
+//   return count;
+// }
+
+// const result = countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model');
+// console.log(result);
+
+// Y-TASK
+
+function findIntersection(arr1: number[], arr2: number[]): number[] {
+  const set2 = new Set(arr2);
+  return arr1.filter(item => set2.has(item));
 }
 
-const result = countOccurrences({model: 'Bugatti', steer: {model: 'HANKOOK', size: 30}}, 'model');
-console.log(result);
+console.log(findIntersection([1,2,3], [3,2,0]));
