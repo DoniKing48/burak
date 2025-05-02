@@ -6,6 +6,8 @@ import router from "./router";
 import routerAdmin from "./router-admin";
 import morgan from "morgan";
 import { MORGAN_FORMAT } from "./libs/config";
+import cookieParser from "cookie-parser";
+
 import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 import { T } from "./libs/types/common";
@@ -22,6 +24,7 @@ const app = express();                                   //serverni MW orqali qu
 app.use(express.static(path.join(__dirname, "public"))); //public folderni tashqariga olib chiqish
 app.use(express.urlencoded({extended: true}));           //MW for traditional API
 app.use(express.json());                                 //MW for rest API
+app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT))                           //performance control, qancha vaqt ketayotganini nazorat qilish uchun
 
 //Patterns: Design & Architechtural
@@ -56,6 +59,6 @@ app.set("view engine", "ejs");                   //view engine EJS, view is bein
 
 // 4-Routers
 app.use("/admin", routerAdmin); // BSSR: EJS
-app.use("/", router);           // Single Page App: React, rest API
+app.use("/", router);           // SPA: React, rest API
 
 export default app;
