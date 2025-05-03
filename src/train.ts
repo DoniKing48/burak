@@ -228,9 +228,17 @@ Database v
 
 // Y-TASK
 
-function findIntersection(arr1: number[], arr2: number[]): number[] {
-  const set2 = new Set(arr2);
-  return arr1.filter(item => set2.has(item));
+// function findIntersection(arr1: number[], arr2: number[]): number[] {
+//   const set2 = new Set(arr2);
+//   return arr1.filter(item => set2.has(item));
+// }
+
+// console.log(findIntersection([1,2,3], [3,2,0]));
+
+// Z-TASK
+
+function sumEvens(arr: number[]): number {
+  return arr.filter(n => n % 2 === 0).reduce((sum, n) => sum + n, 0);
 }
 
-console.log(findIntersection([1,2,3], [3,2,0]));
+console.log(sumEvens([1,2,3,4,5,6,7,2.2]));
