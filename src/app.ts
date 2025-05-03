@@ -22,6 +22,7 @@ const store = new MongoDBStore({
 // 1-Entrance
 const app = express();                                   //serverni MW orqali qurish
 app.use(express.static(path.join(__dirname, "public"))); //public folderni tashqariga olib chiqish
+app.use("/uploads", express.static("./uploads")); 
 app.use(express.urlencoded({extended: true}));           //MW for traditional API
 app.use(express.json());                                 //MW for rest API
 app.use(cookieParser());
