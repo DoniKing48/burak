@@ -237,8 +237,17 @@ Database v
 
 // Z-TASK
 
-function sumEvens(arr: number[]): number {
-  return arr.filter(n => n % 2 === 0).reduce((sum, n) => sum + n, 0);
+// function sumEvens(arr: number[]): number {
+//   return arr.filter(n => n % 2 === 0).reduce((sum, n) => sum + n, 0);
+// }
+
+// console.log(sumEvens([1,2,3,4,5,6,7,2.2]));
+
+// ZA-TASK
+
+function sortByAge(arr: { age: number }[]) {
+  return arr.sort((a, b) => a.age - b.age);
 }
 
-console.log(sumEvens([1,2,3,4,5,6,7,2.2]));
+const result = sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }]);
+console.log(result);
