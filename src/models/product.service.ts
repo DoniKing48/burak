@@ -65,7 +65,7 @@ class ProductService {
         if(!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
         
         if(memberId) {
-            // Check View Log Existence
+            // Check Existence
             const input: ViewInput = {
                 memberId: memberId,
                 viewRefId: productId,
@@ -75,11 +75,11 @@ class ProductService {
 
             console.log("exist:", !!existView);
             if(!existView) {
-                //Insert NEw View Log
+                //Insert View
                 console.log("PLANNING TO INSERT NEW VIEW");
                 await this.viewService.insertMemberView(input);
 
-                //Increase Target View
+                //Increase View
                 result = await this.productModel
                     .findByIdAndUpdate(
                         productId, 
