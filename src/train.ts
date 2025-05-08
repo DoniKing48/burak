@@ -245,9 +245,17 @@ Database v
 
 // ZA-TASK
 
-function sortByAge(arr: { age: number }[]) {
-  return arr.sort((a, b) => a.age - b.age);
+// function sortByAge(arr: { age: number }[]) {
+//   return arr.sort((a, b) => a.age - b.age);
+// }
+
+// const result = sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }]);
+// console.log(result);
+
+// ZB-TASK
+
+function randomBetween(min: number, max: number): number {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const result = sortByAge([{ age: 23 }, { age: 21 }, { age: 13 }]);
-console.log(result);
+console.log(randomBetween(100, 200));
