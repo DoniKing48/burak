@@ -254,8 +254,16 @@ Database v
 
 // ZB-TASK
 
-function randomBetween(min: number, max: number): number {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+// function randomBetween(min: number, max: number): number {
+//   return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
+
+// console.log(randomBetween(100, 200));
+
+// ZC-TASK
+function changeNumberInArray(i: number, arr: any[], num: number): any[]  {
+  arr[i] = num;
+  return arr;
 }
 
-console.log(randomBetween(100, 200));
+console.log(changeNumberInArray(0, [1, 4, 9, 2], 3));

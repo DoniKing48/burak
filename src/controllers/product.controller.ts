@@ -1,14 +1,14 @@
 import { Request, Response } from "express";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 import { T } from "../libs/types/common";
-import ProductService from "../models/product.service";
+import ProductService from "../models/Product.service";
 import { ProductInput, ProductInquiry } from "../libs/types/product";
 import { AdminRequest, ExtendedRequest } from "../libs/types/member";
 import { ProductCollection } from "../libs/enums/product.enum";
 const productService = new ProductService();
 
 const productController: T = {};
-/** SPA */
+/** SPA **/
 productController.getProducts = async (req: Request, res: Response) => {
     try {
         console.log("getProducts");
