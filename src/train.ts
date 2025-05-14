@@ -261,9 +261,28 @@ Database v
 // console.log(randomBetween(100, 200));
 
 // ZC-TASK
-function changeNumberInArray(i: number, arr: any[], num: number): any[]  {
-  arr[i] = num;
-  return arr;
+
+// function changeNumberInArray(i: number, arr: any[], num: number): any[]  {
+//   arr[i] = num;
+//   return arr;
+// }
+
+// console.log(changeNumberInArray(0, [1, 4, 9, 2], 3));
+
+// ZD-TASK
+
+function removeDuplicate(str: string): string {
+  let result = '';
+  let seen = new Set();
+
+  for (let char of str) {
+    if (!seen.has(char)) {
+      seen.add(char);
+      result += char;
+    }
+  }
+
+  return result;
 }
 
-console.log(changeNumberInArray(0, [1, 4, 9, 2], 3));
+console.log(removeDuplicate("ssttringg"));
