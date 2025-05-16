@@ -1,5 +1,5 @@
 //Backend server
-
+import cors from "cors";
 import express, { urlencoded } from "express";
 import path from "path";
 import router from "./router";
@@ -25,6 +25,7 @@ app.use(express.static(path.join(__dirname, "public"))); //public folderni tashq
 app.use("/uploads", express.static("./uploads")); 
 app.use(express.urlencoded({extended: true}));           //MW for traditional API
 app.use(express.json());                                 //MW for rest API
+app.use(cors({ credentials: true, origin: true }));
 app.use(cookieParser());
 app.use(morgan(MORGAN_FORMAT))                           //performance control, qancha vaqt ketayotganini nazorat qilish uchun
 
