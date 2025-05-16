@@ -271,18 +271,33 @@ Database v
 
 // ZD-TASK
 
-function removeDuplicate(str: string): string {
-  let result = '';
-  let seen = new Set();
+// function removeDuplicate(str: string): string {
+//   let result = '';
+//   let seen = new Set();
 
-  for (let char of str) {
-    if (!seen.has(char)) {
-      seen.add(char);
-      result += char;
-    }
-  }
+//   for (let char of str) {
+//     if (!seen.has(char)) {
+//       seen.add(char);
+//       result += char;
+//     }
+//   }
 
-  return result;
+//   return result;
+// }
+
+// console.log(removeDuplicate("ssttringg"));
+
+// ZE-TASK
+
+function capitalizeWords(input: string): string {
+  return input
+    .split(' ')
+    .map(word => {
+      return word.length > 2
+        ? word.charAt(0).toUpperCase() + word.slice(1)
+        : word;
+    })
+    .join(' ');
 }
 
-console.log(removeDuplicate("ssttringg"));
+console.log(capitalizeWords('name should be a string')); 

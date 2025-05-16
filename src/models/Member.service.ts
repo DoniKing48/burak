@@ -23,7 +23,7 @@ public async getRestaurant(): Promise <Member> {
 }
 
 //DEFINITION
-public async signup/*method*/(input/*parametr*/: MemberInput ): Promise<Member> {
+public async signup(input: MemberInput ): Promise<Member> {
     const salt = await bcrypt.genSalt();
     input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
 
