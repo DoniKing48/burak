@@ -289,15 +289,27 @@ Database v
 
 // ZE-TASK
 
-function capitalizeWords(input: string): string {
-  return input
-    .split(' ')
-    .map(word => {
-      return word.length > 2
-        ? word.charAt(0).toUpperCase() + word.slice(1)
-        : word;
-    })
-    .join(' ');
+// function capitalizeWords(input: string): string {
+//   return input
+//     .split(' ')
+//     .map(word => {
+//       return word.length > 2
+//         ? word.charAt(0).toUpperCase() + word.slice(1)
+//         : word;
+//     })
+//     .join(' ');
+// }
+
+// console.log(capitalizeWords('name should be a string')); 
+
+// ZF-TASK
+
+function capitalizeWords(str: string): string {
+  return str
+    .trim()
+    .toLowerCase()
+    .split(/\s+/)
+    .join('_');
 }
 
-console.log(capitalizeWords('name should be a string')); 
+console.log(capitalizeWords('name should be a string'));
