@@ -260,7 +260,7 @@ Database v
 
 // console.log(randomBetween(100, 200));
 
-// ZC-TASK
+// ZD-TASK
 
 // function changeNumberInArray(i: number, arr: any[], num: number): any[]  {
 //   arr[i] = num;
@@ -269,7 +269,7 @@ Database v
 
 // console.log(changeNumberInArray(0, [1, 4, 9, 2], 3));
 
-// ZD-TASK
+// ZE-TASK
 
 // function removeDuplicate(str: string): string {
 //   let result = '';
@@ -287,7 +287,7 @@ Database v
 
 // console.log(removeDuplicate("ssttringg"));
 
-// ZE-TASK
+// ZF-TASK
 
 // function capitalizeWords(input: string): string {
 //   return input
@@ -302,14 +302,34 @@ Database v
 
 // console.log(capitalizeWords('name should be a string')); 
 
-// ZF-TASK
+// ZG-TASK
 
-function capitalizeWords(str: string): string {
-  return str
-    .trim()
-    .toLowerCase()
-    .split(/\s+/)
-    .join('_');
+// function capitalizeWords(str: string): string {
+//   return str
+//     .trim()
+//     .toLowerCase()
+//     .split(/\s+/)
+//     .join('_');
+// }
+
+// console.log(capitalizeWords('name should be a string'));
+
+// ZH-TASK
+
+function findDisappearedNumbers(arr: number[]): number[] {
+  if (!arr || arr.length === 0) return [];
+
+  const max = Math.max(...arr);
+  const numSet = new Set(arr);
+  const result = [];
+
+  for (let i = 1; i <= max; i++) {
+    if (!numSet.has(i)) {
+      result.push(i);
+    }
+  }
+
+  return result;
 }
 
-console.log(capitalizeWords('name should be a string'));
+console.log(findDisappearedNumbers([2, 10])); 
