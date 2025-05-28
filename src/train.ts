@@ -314,22 +314,32 @@ Database v
 
 // console.log(capitalizeWords('name should be a string'));
 
-// ZH-TASK
 
-function findDisappearedNumbers(arr: number[]): number[] {
-  if (!arr || arr.length === 0) return [];
 
-  const max = Math.max(...arr);
-  const numSet = new Set(arr);
-  const result = [];
+// function findDisappearedNumbers(arr: number[]): number[] {
+//   if (!arr || arr.length === 0) return [];
 
-  for (let i = 1; i <= max; i++) {
-    if (!numSet.has(i)) {
-      result.push(i);
-    }
-  }
+//   const max = Math.max(...arr);
+//   const numSet = new Set(arr);
+//   const result = [];
 
-  return result;
+//   for (let i = 1; i <= max; i++) {
+//     if (!numSet.has(i)) {
+//       result.push(i);
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(findDisappearedNumbers([2, 10])); 
+
+// ZI-TASK
+
+function delayHelloWorld(text: string) {
+  setTimeout(() => {
+    console.log(text);
+  }, 3000);
 }
 
-console.log(findDisappearedNumbers([2, 10])); 
+delayHelloWorld("Hello World");
