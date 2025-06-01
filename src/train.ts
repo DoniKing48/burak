@@ -336,10 +336,18 @@ Database v
 
 // ZI-TASK
 
-function delayHelloWorld(text: string) {
-  setTimeout(() => {
-    console.log(text);
-  }, 3000);
+// function delayHelloWorld(text: string) {
+//   setTimeout(() => {
+//     console.log(text);
+//   }, 3000);
+// }
+
+// delayHelloWorld("Hello World");
+
+// ZJ-TASK
+
+function reduceNestedArray(arr: any[]) {
+  return arr.flat(Infinity).reduce((a, b) => a + b, 0);
 }
 
-delayHelloWorld("Hello World");
+console.log(reduceNestedArray([1, [1, 2, [4], 16]])); // 8
