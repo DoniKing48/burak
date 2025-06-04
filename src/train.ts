@@ -346,8 +346,23 @@ Database v
 
 // ZJ-TASK
 
-function reduceNestedArray(arr: any[]) {
-  return arr.flat(Infinity).reduce((a, b) => a + b, 0);
+// function reduceNestedArray(arr: any[]) {
+//   return arr.flat(Infinity).reduce((a, b) => a + b, 0);
+// }
+
+// console.log(reduceNestedArray([1, [1, 2, [4], 16]]));
+
+// ZK-TASK
+
+function countToFive() {
+  let i = 1;
+  const interval = setInterval(() => {
+    console.log(i);
+    if (i === 5) {
+      clearInterval(interval);
+    }
+    i++;
+  }, 1000);
 }
 
-console.log(reduceNestedArray([1, [1, 2, [4], 16]])); // 8
+countToFive();
