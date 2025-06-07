@@ -354,15 +354,24 @@ Database v
 
 // ZK-TASK
 
-function countToFive() {
-  let i = 1;
-  const interval = setInterval(() => {
-    console.log(i);
-    if (i === 5) {
-      clearInterval(interval);
-    }
-    i++;
-  }, 1000);
+// function countToFive() {
+//   let i = 1;
+//   const interval = setInterval(() => {
+//     console.log(i);
+//     if (i === 5) {
+//       clearInterval(interval);
+//     }
+//     i++;
+//   }, 1000);
+// }
+
+// countToFive();
+
+// ZM-TASK
+
+function reverseInteger(number: number) {
+  const reversed = parseInt(number.toString().split('').reverse().join(''));
+  return reversed;
 }
 
-countToFive();
+console.log(reverseInteger(123456789));
