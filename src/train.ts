@@ -369,9 +369,18 @@ Database v
 
 // ZM-TASK
 
-function reverseInteger(number: number) {
-  const reversed = parseInt(number.toString().split('').reverse().join(''));
-  return reversed;
+// function reverseInteger(number: number) {
+//   const reversed = parseInt(number.toString().split('').reverse().join(''));
+//   return reversed;
+// }
+
+// console.log(reverseInteger(123456789));
+
+// ZN-TASK
+
+function rotateArray<T>(arr: T[], count: number): T[] {
+  const n = count % arr.length;
+  return arr.slice(-n).concat(arr.slice(0, -n));
 }
 
-console.log(reverseInteger(123456789));
+console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
