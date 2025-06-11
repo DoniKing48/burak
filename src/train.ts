@@ -378,9 +378,29 @@ Database v
 
 // ZN-TASK
 
-function rotateArray<T>(arr: T[], count: number): T[] {
-  const n = count % arr.length;
-  return arr.slice(-n).concat(arr.slice(0, -n));
+// function rotateArray<T>(arr: T[], count: number): T[] {
+//   const n = count % arr.length;
+//   return arr.slice(-n).concat(arr.slice(0, -n));
+// }
+
+// console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
+
+// ZO-TASK
+
+function areParenthesesBalanced(s: string): boolean {
+    let count = 0;
+    for (const char of s) {
+        if (char === '(') {
+            count++;
+        } else if (char === ')') {
+            count--;
+            if (count < 0) {
+                return false;
+            }
+        }
+    }
+    return count === 0;
 }
 
-console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
+console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"));
+console.log(areParenthesesBalanced("(()")); 
