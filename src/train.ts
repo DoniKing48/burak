@@ -387,20 +387,42 @@ Database v
 
 // ZO-TASK
 
-function areParenthesesBalanced(s: string): boolean {
-    let count = 0;
-    for (const char of s) {
-        if (char === '(') {
-            count++;
-        } else if (char === ')') {
-            count--;
-            if (count < 0) {
-                return false;
-            }
-        }
+// function areParenthesesBalanced(s: string): boolean {
+//     let count = 0;
+//     for (const char of s) {
+//         if (char === '(') {
+//             count++;
+//         } else if (char === ')') {
+//             count--;
+//             if (count < 0) {
+//                 return false;
+//             }
+//         }
+//     }
+//     return count === 0;
+// }
+
+// console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"));
+// console.log(areParenthesesBalanced("(()")); 
+
+
+// ZP-TASK
+
+function countNumberAndLetters(str: any) {
+  let result = {
+    number: 0,
+    letter: 0
+  };
+
+  for (let char of str) {
+    if (/[0-9]/.test(char)) {
+      result.number++;
+    } else if (/[a-zA-Z]/.test(char)) {
+      result.letter++;
     }
-    return count === 0;
+  }
+
+  return result;
 }
 
-console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"));
-console.log(areParenthesesBalanced("(()")); 
+console.log(countNumberAndLetters("string152%213!@#¥"));
