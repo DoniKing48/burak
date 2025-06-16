@@ -408,21 +408,42 @@ Database v
 
 // ZP-TASK
 
-function countNumberAndLetters(str: any) {
-  let result = {
-    number: 0,
-    letter: 0
-  };
+// function countNumberAndLetters(str: any) {
+//   let result = {
+//     number: 0,
+//     letter: 0
+//   };
 
-  for (let char of str) {
-    if (/[0-9]/.test(char)) {
-      result.number++;
-    } else if (/[a-zA-Z]/.test(char)) {
-      result.letter++;
+//   for (let char of str) {
+//     if (/[0-9]/.test(char)) {
+//       result.number++;
+//     } else if (/[a-zA-Z]/.test(char)) {
+//       result.letter++;
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(countNumberAndLetters("string152%213!@#¥"));
+
+// ZQ-TASK
+
+function findDuplicates(arr: number[]): number[] {
+  const countMap: Record<number, number> = {};
+  const result: number[] = [];
+
+  for (const num of arr) {
+    countMap[num] = (countMap[num] || 0) + 1;
+  }
+
+  for (const num in countMap) {
+    if (countMap[+num] > 1) {
+      result.push(+num);
     }
   }
 
   return result;
 }
 
-console.log(countNumberAndLetters("string152%213!@#¥"));
+console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 7, 5]));
