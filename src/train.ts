@@ -429,21 +429,34 @@ Database v
 
 // ZQ-TASK
 
-function findDuplicates(arr: number[]): number[] {
-  const countMap: Record<number, number> = {};
-  const result: number[] = [];
+// function findDuplicates(arr: number[]): number[] {
+//   const countMap: Record<number, number> = {};
+//   const result: number[] = [];
 
-  for (const num of arr) {
-    countMap[num] = (countMap[num] || 0) + 1;
-  }
+//   for (const num of arr) {
+//     countMap[num] = (countMap[num] || 0) + 1;
+//   }
 
-  for (const num in countMap) {
-    if (countMap[+num] > 1) {
-      result.push(+num);
+//   for (const num in countMap) {
+//     if (countMap[+num] > 1) {
+//       result.push(+num);
+//     }
+//   }
+
+//   return result;
+// }
+
+// console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 7, 5]));
+
+// ZR-TASK
+
+function firstUniqueCharIndex(str: string): number {
+  for (let i = 0; i < str.length; i++) {
+    if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) {
+      return i;
     }
   }
-
-  return result;
+  return -1;
 }
 
-console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 7, 5]));
+console.log(firstUniqueCharIndex("sstaammpp"));
