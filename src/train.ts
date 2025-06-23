@@ -450,13 +450,23 @@ Database v
 
 // ZR-TASK
 
-function firstUniqueCharIndex(str: string): number {
-  for (let i = 0; i < str.length; i++) {
-    if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) {
-      return i;
-    }
-  }
-  return -1;
+// function firstUniqueCharIndex(str: string): number {
+//   for (let i = 0; i < str.length; i++) {
+//     if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) {
+//       return i;
+//     }
+//   }
+//   return -1;
+// }
+
+// console.log(firstUniqueCharIndex("sstaammpp"));
+
+// ZT-TASK
+
+function sumOfUnique(nums: number[]): number {
+  return nums
+    .filter(num => nums.indexOf(num) === nums.lastIndexOf(num))
+    .reduce((sum, num) => sum + num, 0);
 }
 
-console.log(firstUniqueCharIndex("sstaammpp"));
+console.log(sumOfUnique([1, 1, 2, 3, 3, 4]));
