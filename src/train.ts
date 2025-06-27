@@ -463,10 +463,20 @@ Database v
 
 // ZT-TASK
 
-function sumOfUnique(nums: number[]): number {
-  return nums
-    .filter(num => nums.indexOf(num) === nums.lastIndexOf(num))
-    .reduce((sum, num) => sum + num, 0);
+// function sumOfUnique(nums: number[]): number {
+//   return nums
+//     .filter(num => nums.indexOf(num) === nums.lastIndexOf(num))
+//     .reduce((sum, num) => sum + num, 0);
+// }
+
+// console.log(sumOfUnique([1, 1, 2, 3, 3, 4]));
+
+// ZU-TASK
+
+function moveZeroes(nums: number[]): number[] {
+  const nonZeroes = nums.filter(num => num !== 0);
+  const zeroes = new Array(nums.length - nonZeroes.length).fill(0);
+  return [...nonZeroes, ...zeroes];
 }
 
-console.log(sumOfUnique([1, 1, 2, 3, 3, 4]));
+console.log(moveZeroes([0, 1, 0, 3, 12]));
