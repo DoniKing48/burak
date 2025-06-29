@@ -473,10 +473,33 @@ Database v
 
 // ZU-TASK
 
-function moveZeroes(nums: number[]): number[] {
-  const nonZeroes = nums.filter(num => num !== 0);
-  const zeroes = new Array(nums.length - nonZeroes.length).fill(0);
-  return [...nonZeroes, ...zeroes];
+// function moveZeroes(nums: number[]): number[] {
+//   const nonZeroes = nums.filter(num => num !== 0);
+//   const zeroes = new Array(nums.length - nonZeroes.length).fill(0);
+//   return [...nonZeroes, ...zeroes];
+// }
+
+// console.log(moveZeroes([0, 1, 0, 3, 12]));
+
+
+// ZV-TASK
+
+function groupedBy(arr: Record<string, any>[], key: string): Record<string, any[]> {
+  return arr.reduce((acc, obj) => {
+    const groupKey = String(obj[key]);
+    if (!acc[groupKey]) {
+      acc[groupKey] = [];
+    }
+    acc[groupKey].push(obj);
+    return acc;
+  }, {} as Record<string, any[]>);
 }
 
-console.log(moveZeroes([0, 1, 0, 3, 12]));
+const data = [
+  { name: "Alice", age: 30, city: "New York" },
+  { name: "Bob", age: 25, city: "London" },
+  { name: "Charlie", age: 35, city: "Paris" }
+];
+
+const result = groupedBy(data, 'name');
+console.log(result);
