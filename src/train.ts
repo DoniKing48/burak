@@ -484,22 +484,39 @@ Database v
 
 // ZV-TASK
 
-function groupedBy(arr: Record<string, any>[], key: string): Record<string, any[]> {
-  return arr.reduce((acc, obj) => {
-    const groupKey = String(obj[key]);
-    if (!acc[groupKey]) {
-      acc[groupKey] = [];
-    }
-    acc[groupKey].push(obj);
-    return acc;
-  }, {} as Record<string, any[]>);
+// function groupedBy(arr: Record<string, any>[], key: string): Record<string, any[]> {
+//   return arr.reduce((acc, obj) => {
+//     const groupKey = String(obj[key]);
+//     if (!acc[groupKey]) {
+//       acc[groupKey] = [];
+//     }
+//     acc[groupKey].push(obj);
+//     return acc;
+//   }, {} as Record<string, any[]>);
+// }
+
+// const data = [
+//   { name: "Alice", age: 30, city: "New York" },
+//   { name: "Bob", age: 25, city: "London" },
+//   { name: "Charlie", age: 35, city: "Paris" }
+// ];
+
+// const result = groupedBy(data, 'name');
+// console.log(result);
+
+// ZW-TASK
+
+function checkArray(arr: (string | number)[]): boolean {
+  let hasNumber = false;
+  let hasString = false;
+
+  for (const item of arr) {
+    if (typeof item === 'number') hasNumber = true;
+    if (typeof item === 'string') hasString = true;
+  }
+
+  return hasNumber && hasString;
 }
 
-const data = [
-  { name: "Alice", age: 30, city: "New York" },
-  { name: "Bob", age: 25, city: "London" },
-  { name: "Charlie", age: 35, city: "Paris" }
-];
-
-const result = groupedBy(data, 'name');
-console.log(result);
+console.log(checkArray(['hello', 123, 'world']));
+console.log(checkArray(['hello', '123', 'world']));
