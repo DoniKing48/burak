@@ -6,13 +6,10 @@ import makeUploader from "./libs/utils/uploader";
 
 
 // Restaurant
-routerAdmin.get/*method*/("/"/*url*/, restaurantController/*object*/.goHome/*method*/);
-
-//API methodi (get) bilan endpoint (url) bajarilsa object (controller) => methodga (goHome) jo'natiladi
-
+routerAdmin.get("/", restaurantController.goHome);
 routerAdmin
-.get("/login", /*CALL*/ restaurantController.getLogin /*CALL*/)   /*get-page ga borish*/
-.post("/login", restaurantController.processLogin);               /*post-page da biror bir amal bajarib yuborish*/
+.get("/login", restaurantController.getLogin)
+.post("/login", restaurantController.processLogin);
 
 routerAdmin
 .get("/signup", restaurantController.getSignup)

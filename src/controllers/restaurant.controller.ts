@@ -6,24 +6,18 @@ import { MemberType } from "../libs/enums/member.enum";
 import Errors, { HttpCode, Message } from "../libs/Errors";
 
 
-const memberService = new MemberService(); //MemberService modulidan yangi object(memberService) yasaymiz
+const memberService = new MemberService();
 const restaurantController: T = {};
 
-//DEFINITION
-restaurantController.goHome = (req: Request, res: Response) /*2-parametr*/ => {
+restaurantController.goHome = (req: Request, res: Response) => {
     try {
-        console.log('go home'); // console.log - controllerni "go home" methodiga kirib kelganimizni bildiradi 
-        // logic
-        // service model
-        // ...
+        console.log('go home'); 
         res.render("home");
-        // send | json | redirect | end | render = formats
     } catch (err) {
         console.log("ERROR, goHome:", err);
         res.redirect("/admin");
     }
 };
-//DEFINITION
 
 restaurantController.getSignup = (req: Request, res: Response) => {
     try {
@@ -57,9 +51,6 @@ restaurantController.processSignup = async (req: AdminRequest, res: Response) =>
         newMember.memberImage = file?.path.replace(/\\/g, '/');
         newMember.memberType = MemberType.RESTAURANT;
 
-        //CALL
-        //Objectimiz orqali methodni (processSignup) chaqirib "newMember"ni argument sifatida PASS qilayapmiz
-        //Natijani kutib const ni result ga tenglayapmiz
         const result = await memberService.processSignup(newMember);
         req.session.member = result;
         req.session.save(function() {

@@ -12,29 +12,21 @@ import session from "express-session";
 import ConnectMongoDB from "connect-mongodb-session";
 import { T } from "./libs/types/common";
 
-//TCP-2
 const MongoDBStore = ConnectMongoDB(session);
 const store = new MongoDBStore({
     uri: String(process.env.MONGO_URL),
     collection: "sessions",
 });
 
-// 1-Entrance
-const app = express();                                   //serverni MW orqali qurish
-app.use(express.static(path.join(__dirname, "public"))); //public folderni tashqariga olib chiqish
+const app = express();
+app.use(express.static(path.join(__dirname, "public")));
 app.use("/uploads", express.static("./uploads")); 
-app.use(express.urlencoded({extended: true}));           //MW for traditional API
-app.use(express.json());                                 //MW for rest API
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 app.use(cors({ credentials: true, origin: true }));
 app.use(cookieParser());
-app.use(morgan(MORGAN_FORMAT))                           //performance control, qancha vaqt ketayotganini nazorat qilish uchun
+app.use(morgan(MORGAN_FORMAT))
 
-//Patterns: Design & Architechtural
-//API: Traditional, Rest, GraphQL
-//Methods: get & post
-//Structure: header & body
-
-// 2-Sessions
 app.use(
     session({
         secret: String(process.env.SESSION_SECRET),
@@ -55,12 +47,10 @@ app.use(
     }
 );
 
-// 3-Views
-app.set("views", path.join(__dirname, "views")); //BSSR uchun EJS frameworkini intergartsiya qilish
-app.set("view engine", "ejs");                   //view engine EJS, view is being used for view generation
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
-// 4-Routers
-app.use("/admin", routerAdmin); // BSSR: EJS
-app.use("/", router);           // SPA: React, rest API
+app.use("/admin", routerAdmin);
+app.use("/", router);
 
 export default app;

@@ -6,7 +6,7 @@ import Errors, { HttpCode, Message } from "../libs/Errors";
 import AuthService from "../models/Auth.service";
 import { AUTH_TIMER } from "../libs/config";
 
-const memberService = new MemberService(); //MemberService modulidan yangi object(memberService) yasaymiz
+const memberService = new MemberService();
 const authService = new AuthService();
 
 const memberController: T = {};
@@ -29,7 +29,6 @@ memberController.signup = async (req: Request, res: Response) => {
         console.log('signup');
 
         const input: MemberInput = req.body,
-        //CALL
         result: Member = await memberService.signup(input);
         const token = await authService.createToken(result);
         
